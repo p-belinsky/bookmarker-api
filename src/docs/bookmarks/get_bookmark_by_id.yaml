@@ -1,0 +1,29 @@
+GET  bookmark by id
+---
+tags:
+  - Bookmarks
+
+
+get:
+  parameters:
+    - in: header
+      name: Authorization
+      required: true
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        minimum: 1
+        description: The bookmark id number to return 
+
+responses:
+  200:
+    description: Successfully gets the bookmark by its id
+
+  401:
+    description: Fails to get bookmark due to authentication error
+  
+  404:
+    description: Bookmark is not found
+  

@@ -1,0 +1,29 @@
+DELETE  bookmark by id
+---
+tags:
+  - Bookmarks
+
+
+delete:
+  parameters:
+    - in: header
+      name: Authorization
+      required: true
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        minimum: 1
+        description: The bookmark id to delete
+
+responses:
+  204:
+    description: Successfully deletes the bookmark
+
+  401:
+    description: Fails to delete bookmark due to authentication error
+  
+  404:
+    description: Bookmark is not found
+  

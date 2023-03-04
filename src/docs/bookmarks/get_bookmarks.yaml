@@ -1,0 +1,21 @@
+GET  all bookmarks
+---
+tags:
+  - Bookmarks
+
+parameters:
+  - in: header
+    name: Authorization
+    required: true
+  - in: query
+    name: page
+    schema:
+      type: integer
+    description: The page number to return 
+
+responses:
+  200:
+    description: List of all bookmarks
+
+  401:
+    description: Fails to get items due to authentication error

@@ -1,0 +1,16 @@
+User logout
+---
+tags:
+  - Authentication
+
+parameters:
+  - in: header
+    name: Authorization
+    required: true
+
+responses:
+  200:
+    description: Token was successfully revoked
+
+  401:
+    description: Token is revoked 

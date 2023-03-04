@@ -1,0 +1,47 @@
+EDIT  bookmark by id
+---
+tags:
+  - Bookmarks
+
+
+put:
+  parameters:
+    - in: header
+      name: Authorization
+      required: true
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        minimum: 1
+        description: The bookmark id to edit
+    - name: body
+      description: The body should contain the Bookmark data
+      in: body
+      required: true
+      schema:
+        type: object
+        required:
+          - "url"
+          - "body"
+        properties:
+          url:
+            type: "string"
+            example: "http://www.foxnews.com"
+          body:
+            type: "string"
+            example: "My news website"
+
+responses:
+  200:
+    description: Successfully edits the bookmark
+  
+  400:
+    description: Invalid url 
+
+  401:
+    description: Fails to edit bookmark due to authentication error
+  
+  404:
+    description: Bookmark is not found

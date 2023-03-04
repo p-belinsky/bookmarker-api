@@ -1,0 +1,40 @@
+POST bookmark
+---
+tags:
+  - Bookmarks
+parameters:
+parameters:
+  - in: header
+    name: Authorization
+    required: true
+
+  - name: body
+    description: The body should contain the Bookmark data
+    in: body
+    required: true
+    schema:
+      type: object
+      required:
+        - "url"
+        - "body"
+      properties:
+        url:
+          type: "string"
+          example: "http://www.foxnews.com"
+        body:
+          type: "string"
+          example: "My news website"
+    
+
+responses:
+  201:
+    description: Bookmark is added successfully
+
+  400:
+    description: Url is invalid
+
+  409:
+    description: Url already exists
+  
+  401:
+    description: Fails to add bookmark due to authentication error
